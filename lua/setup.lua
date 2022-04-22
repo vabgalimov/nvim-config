@@ -16,6 +16,15 @@ require("mini.statusline").setup {}
 require("mini.surround").setup {}
 require("mini.tabline").setup {}
 
-local lspconfig = require "lspconfig"
-lspconfig.pylsp.setup {}
-lspconfig.tsserver.setup {}
+require("nvim-treesitter.configs").setup {
+	ensure_installed = {
+		"python",
+		"javascript",
+		"typescript",
+	},
+	sync_install = true
+}
+
+require("nvim-lsp-installer").on_server_ready(function(server)
+	server:setup {}
+end)
