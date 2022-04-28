@@ -1,22 +1,17 @@
 local set = vim.opt;
 
 vim.cmd [[
-	filetype plugin indent on
-	syntax on
+    filetype plugin indent on
+    syntax on
 ]]
 
 -- Подтверждение изменений
 set.confirm = true
 
--- Умные отступы
-set.smartindent = true
-
 -- Настройка отступов
-set.tabstop = 4
+set.softtabstop = 4
 set.shiftwidth = 4
-
--- Настройка Backspace
-set.backspace = "indent,eol,start"
+set.expandtab = true
 
 -- Курсор всегда по середине
 set.scrolloff = 999
@@ -25,18 +20,22 @@ set.scrolloff = 999
 set.number = true
 set.relativenumber = true
 
+-- Ленивая перерисовка
 set.lazyredraw = true
 
-set.virtualedit = "onemore"
+-- Выделение пустого пронстранства при Visul-Block
+set.virtualedit = "block"
 
-set.whichwrap = "b,s,<,>,[,]"
+-- Навигация по строкам
+set.whichwrap = "b,s,[,]"
 
+-- Перенос строк (на 4 пробела)
 set.linebreak = true
 set.breakindent = true
 set.breakindentopt = "shift:4"
 
+-- Выделение текущей строки
 set.cursorline = true
 
+-- Поддержка мыши
 set.mouse = "a"
-
-set.background = "dark"

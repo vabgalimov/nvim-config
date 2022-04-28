@@ -1,0 +1,5 @@
+{
+    "python": "python",
+    "javascript": "node",
+    "typescript": "ts-node"
+}
