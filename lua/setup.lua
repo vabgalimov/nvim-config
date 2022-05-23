@@ -1,6 +1,0 @@
-require "setup.vscode_theme"
-require "setup.mini"
-require "setup.treesitter"
-require "setup.init_cmp"
-require "setup.cmp_lsp"
-require "setup.others"

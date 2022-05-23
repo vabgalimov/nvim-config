@@ -1,41 +1,39 @@
-local set = vim.opt;
+vim.cmd "filetype plugin indent on"
+vim.cmd "syntax on"
 
-vim.cmd [[
-    filetype plugin indent on
-    syntax on
-]]
+local set = vim.opt
 
--- Подтверждение изменений
-set.confirm = true
-
--- Настройка отступов
 set.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 
--- Курсор всегда по середине
-set.scrolloff = 999
-
--- Нумерация строк
-set.number = true
-set.relativenumber = true
-
--- Ленивая перерисовка
-set.lazyredraw = true
-
--- Выделение пустого пронстранства при Visul-Block
-set.virtualedit = "block"
-
--- Навигация по строкам
-set.whichwrap = "b,s,[,]"
-
--- Перенос строк (на 4 пробела)
 set.linebreak = true
 set.breakindent = true
 set.breakindentopt = "shift:4"
 
--- Выделение текущей строки
-set.cursorline = true
+set.list = true
+set.listchars:append "eol:↴"
 
--- Поддержка мыши
-set.mouse = "a"
+set.number = true
+set.relativenumber = true
+vim.cmd "command R set rnu!"
+
+set.whichwrap = "b,s,h,l,<,>,[,]"
+set.virtualedit = "block,onemore"
+set.scrolloff = 999
+set.mouse:append "a"
+
+set.completeopt = "menu,menuone,noselect"
+
+
+local lsp = vim.lsp
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+    lsp.diagnostic.on_publish_diagnostics,
+    {
+        underline = true,
+        -- update_in_insert = true,
+    })
+
+vim.diagnostic.config {
+    virtual_text = false
+}
