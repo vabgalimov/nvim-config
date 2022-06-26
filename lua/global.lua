@@ -3,8 +3,8 @@ vim.cmd "syntax on"
 
 local set = vim.opt
 
-set.softtabstop = 4
 set.shiftwidth = 4
+set.softtabstop = -1
 set.expandtab = true
 
 set.linebreak = true

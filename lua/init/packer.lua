@@ -8,7 +8,7 @@ if vim.fn.empty(vim.fn.glob(path)) > 0 then
 end
 
 vim.cmd [[
-    aug packer_autocompile
+    aug PackerAutocompile
         au!
         au BufWritePost plugins.lua source <afile>|PackerCompile
     aug end
